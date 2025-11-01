@@ -7,12 +7,12 @@
   <meta name="description" content="Adiba Tirandaz — Frontend Developer | Angular, TypeScript, JavaScript" />
   <style>
     :root{
-      --bg:#0f0b0a;
-      --coffee-1:#2b1b17;
-      --coffee-2:#5c3a21;
-      --accent:#c9a66b;
-      --muted:#9b8a7a;
-      --card:#151213;
+      --bg:#0f0b0a;             /* near black */
+      --coffee-1:#2b1b17;       /* deep coffee */
+      --coffee-2:#5c3a21;       /* warm brown */
+      --accent:#c9a66b;         /* golden cream */
+      --muted:#9b8a7a;          /* muted beige */
+      --card:#151213;           /* card dark */
       --glass: rgba(255,255,255,0.03);
       --white: #ffffff;
       --glass-border: rgba(255,255,255,0.04);
@@ -22,31 +22,51 @@
     *{box-sizing:border-box}
     html,body{height:100%;}
     body{
-      margin:0; font-family:var(--mono); background:linear-gradient(180deg,var(--bg),#040303 60%); color:var(--white);
+      margin:0; font-family:var(--mono); background:linear-gradient(180deg,var(--bg),#040303 60%); color:var(--white); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
+
+    /* layout */
     .container{max-width:1100px;margin:48px auto;padding:28px}
     header{display:flex;gap:28px;align-items:center}
+
+    /* avatar */
     .avatar{
       width:140px;height:140px;border-radius:18px;flex:0 0 140px;background:linear-gradient(135deg,var(--coffee-2),var(--coffee-1));padding:6px;box-shadow:var(--shadow);
       transform:translateY(0); animation:float 6s ease-in-out infinite;
     }
     .avatar img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block}
-    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+
+    @keyframes float{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+      100%{transform:translateY(0)}
+    }
+
     .hero{flex:1}
     .title{font-size:20px;letter-spacing:0.6px;color:var(--accent);margin:0}
     .name{font-size:34px;margin:6px 0 8px}
     .role{color:var(--muted);margin:0 0 16px}
+
     .actions{display:flex;gap:12px}
     .btn{background:transparent;border:1px solid var(--glass-border);padding:8px 12px;border-radius:10px;color:var(--white);text-decoration:none;font-weight:600}
     .btn.primary{background:linear-gradient(90deg,var(--coffee-2),var(--coffee-1));border:none}
+
+    /* grid sections */
     .grid{display:grid;grid-template-columns:1fr 340px;gap:24px;margin-top:28px}
+
     .card{background:linear-gradient(180deg,var(--card),#0f0d0d);padding:18px;border-radius:14px;border:1px solid var(--glass-border);box-shadow:var(--shadow)}
     h3{margin:0 0 12px}
+
+    /* skills */
     .skills{display:flex;flex-wrap:wrap;gap:8px}
     .skill{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    /* timeline */
     .timeline{display:flex;flex-direction:column;gap:12px}
     .job{padding:10px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
     .job .meta{color:var(--muted);font-size:13px}
+
+    /* projects */
     .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
     .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;transition:transform .28s ease, box-shadow .28s ease;cursor:pointer}
     .project:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
@@ -54,22 +74,35 @@
     .project p{margin:0;font-size:14px;color:var(--muted)}
     .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
     .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* contact */
     .contact-list{display:flex;flex-direction:column;gap:8px}
     .contact-item{font-size:14px;color:var(--muted)}
+
+    /* subtle reveal animation */
     .reveal{opacity:0;transform:translateY(8px);animation:reveal .9s forwards;animation-delay:0.15s}
     .reveal:nth-child(2){animation-delay:0.22s}
     .reveal:nth-child(3){animation-delay:0.30s}
     @keyframes reveal{to{opacity:1;transform:none}}
+
     footer{text-align:center;margin:40px 0 20px;color:var(--muted);font-size:13px}
+
+    /* responsive */
     @media (max-width:900px){.grid{grid-template-columns:1fr}.avatar{width:120px;height:120px}.container{padding:18px}}
+
+    /* decorative accent line */
     .accent-line{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--accent),transparent);margin-top:12px}
-  </style>
+
+  /* light mode */
+    
+    </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="avatar reveal">
-        <img src="assets/p.jpeg" alt="Adiba Tirandaz">
+        <!-- Replace 'assets/photo.jpg' with your own image path -->
+        <img src="assets/photo.jpg" alt="Adiba Tirandaz">
       </div>
       <div class="hero">
         <p class="title">Frontend Developer — Angular & TypeScript</p>
@@ -81,15 +114,112 @@
         </div>
         <div class="accent-line"></div>
       </div>
+    
     </header>
+
     <div class="grid">
       <main>
         <section class="card reveal">
           <h3>About</h3>
-          <p style="color:var(--muted);margin-top:6px">Frontend-focused developer with 6+ years of experience in building scalable Angular applications, enterprise dashboards and user-friendly interfaces...</p>
+          <p style="color:var(--muted);margin-top:6px">Frontend-focused developer with 6+ years of experience in building scalable Angular applications, enterprise dashboards and user-friendly interfaces. Strong in TypeScript, JavaScript, responsive design, and performance optimization. Experienced in Agile delivery, mentoring, and client-facing communication.</p>
+        </section>
+
+        <section class="card reveal" id="projects" style="margin-top:18px">
+          <h3>Projects</h3>
+          <div class="projects" style="margin-top:12px">
+            <article class="project">
+              <h4>PIL — Pipeline Management System</h4>
+              <p>Enterprise dashboard for real-time operational workflow with custom filters, inline editing and optimized performance.</p>
+              <div class="tags">
+                <span class="tag">Angular</span>
+                <span class="tag">Lazy Loading</span>
+                <span class="tag">REST APIs</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <h4>Sortted — Productivity App</h4>
+              <p>Calendar, drag‑and‑drop tasks, analytics charts and CSV export for business users.</p>
+              <div class="tags"><span class="tag">Angular</span><span class="tag">Python</span></div>
+            </article>
+
+            <article class="project">
+              <h4>Pantomah — School ERP</h4>
+              <p>Dashboards for students, teachers and admins with real‑time notifications via Firebase.</p>
+              <div class="tags"><span class="tag">Angular</span><span class="tag">Firebase</span></div>
+            </article>
+
+            <article class="project">
+              <h4>Bridge Monitoring System</h4>
+              <p>IoT dashboard showing vibration & temperature telemetry with threshold alerts and role‑based access.</p>
+              <div class="tags"><span class="tag">Angular</span><span class="tag">IoT</span></div>
+            </article>
+
+          </div>
+        </section>
+
+        <section class="card reveal" style="margin-top:18px">
+          <h3>Education</h3>
+          <p style="color:var(--muted);margin-top:6px">M.Sc. Computer Science — Savitribai Phule Pune University (2020)</p>
         </section>
       </main>
+
+      <aside>
+        <section class="card reveal">
+          <h3>Skills</h3>
+          <div class="skills" style="margin-top:10px">
+            <span class="skill">Angular</span>
+            <span class="skill">TypeScript</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">React</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">Firebase</span>
+            <span class="skill">Figma</span>
+          </div>
+        </section>
+
+        <section class="card reveal" style="margin-top:18px">
+          <h3>Experience</h3>
+          <div class="timeline" style="margin-top:10px">
+            <div class="job">
+              <strong>Ironalytics</strong>
+              <div class="meta">Senior Frontend Developer — Jun 2022 – Apr 2025</div>
+              <div style="color:var(--muted);margin-top:8px;font-size:14px">Mentored juniors, client POC, Angular builds & deployments, automation scripts (Node.js).</div>
+            </div>
+
+            <div class="job">
+              <strong>Cyberian Consulting</strong>
+              <div class="meta">Senior Frontend Developer — Jun 2022 – Jun 2023</div>
+              <div style="color:var(--muted);margin-top:8px;font-size:14px">Led Angular UI dev, stakeholder demos and documentation.</div>
+            </div>
+
+            <div class="job">
+              <strong>Broadstairs IT Solutions</strong>
+              <div class="meta">Software Developer — Jan 2019 – Jun 2022</div>
+              <div style="color:var(--muted);margin-top:8px;font-size:14px">Full lifecycle delivery: PHP → Angular/React, deployments & scrums.</div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="card reveal" style="margin-top:18px">
+          <h3>Contact</h3>
+          <div class="contact-list" style="margin-top:8px">
+            <div class="contact-item">Email: <a style="color:var(--accent);text-decoration:none" href="mailto:tirandazadiba1@gmail.com">tirandazadiba1@gmail.com</a></div>
+            <div class="contact-item">Phone: +91 98901 64647</div>
+            <div class="contact-item">Location: Pune, India</div>
+            <div class="contact-item">LinkedIn: <a style="color:var(--accent);text-decoration:none" href="https://www.linkedin.com/in/adiba-tirandaz-09a94236b/">LinkedIn Profile</a></div>
+          </div>
+        </section>
+      </aside>
     </div>
+
+    <footer>
+      Built with care — Adiba Tirandaz • Frontend Developer
+    </footer>
   </div>
+
 </body>
 </html>
