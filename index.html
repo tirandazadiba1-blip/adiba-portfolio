@@ -1,102 +1,307 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Adiba Tirandaz — Portfolio</title>
   <meta name="description" content="Adiba Tirandaz — Frontend Developer | Angular, TypeScript, JavaScript" />
   <style>
-    :root{
-      --bg:#0f0b0a;             /* near black */
-      --coffee-1:#2b1b17;       /* deep coffee */
-      --coffee-2:#5c3a21;       /* warm brown */
-      --accent:#c9a66b;         /* golden cream */
-      --muted:#9b8a7a;          /* muted beige */
-      --card:#151213;           /* card dark */
-      --glass: rgba(255,255,255,0.03);
+    :root {
+      --bg: #0f0b0a;
+      /* near black */
+      --coffee-1: #2b1b17;
+      /* deep coffee */
+      --coffee-2: #5c3a21;
+      /* warm brown */
+      --accent: #c9a66b;
+      /* golden cream */
+      --muted: #9b8a7a;
+      /* muted beige */
+      --card: #151213;
+      /* card dark */
+      --glass: rgba(255, 255, 255, 0.03);
       --white: #ffffff;
-      --glass-border: rgba(255,255,255,0.04);
-      --shadow: 0 10px 30px rgba(0,0,0,0.6);
+      --glass-border: rgba(255, 255, 255, 0.04);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       --mono: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;}
-    body{
-      margin:0; font-family:var(--mono); background:linear-gradient(180deg,var(--bg),#040303 60%); color:var(--white); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--mono);
+      background: linear-gradient(180deg, var(--bg), #040303 60%);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* layout */
-    .container{max-width:1100px;margin:48px auto;padding:28px}
-    header{display:flex;gap:28px;align-items:center}
+    .container {
+      max-width: 1100px;
+      margin: 48px auto;
+      padding: 28px
+    }
+
+    header {
+      display: flex;
+      gap: 28px;
+      align-items: center
+    }
 
     /* avatar */
-    .avatar{
-      width:140px;height:140px;border-radius:18px;flex:0 0 140px;background:linear-gradient(135deg,var(--coffee-2),var(--coffee-1));padding:6px;box-shadow:var(--shadow);
-      transform:translateY(0); animation:float 6s ease-in-out infinite;
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 18px;
+      flex: 0 0 140px;
+      background: linear-gradient(135deg, var(--coffee-2), var(--coffee-1));
+      padding: 6px;
+      box-shadow: var(--shadow);
+      transform: translateY(0);
+      animation: float 6s ease-in-out infinite;
     }
-    .avatar img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block}
 
-    @keyframes float{
-      0%{transform:translateY(0)}
-      50%{transform:translateY(-8px)}
-      100%{transform:translateY(0)}
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block
     }
 
-    .hero{flex:1}
-    .title{font-size:20px;letter-spacing:0.6px;color:var(--accent);margin:0}
-    .name{font-size:34px;margin:6px 0 8px}
-    .role{color:var(--muted);margin:0 0 16px}
+    @keyframes float {
+      0% {
+        transform: translateY(0)
+      }
 
-    .actions{display:flex;gap:12px}
-    .btn{background:transparent;border:1px solid var(--glass-border);padding:8px 12px;border-radius:10px;color:var(--white);text-decoration:none;font-weight:600}
-    .btn.primary{background:linear-gradient(90deg,var(--coffee-2),var(--coffee-1));border:none}
+      50% {
+        transform: translateY(-8px)
+      }
+
+      100% {
+        transform: translateY(0)
+      }
+    }
+
+    .hero {
+      flex: 1
+    }
+
+    .title {
+      font-size: 20px;
+      letter-spacing: 0.6px;
+      color: var(--accent);
+      margin: 0
+    }
+
+    .name {
+      font-size: 34px;
+      margin: 6px 0 8px
+    }
+
+    .role {
+      color: var(--muted);
+      margin: 0 0 16px
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px
+    }
+
+    .btn {
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, var(--coffee-2), var(--coffee-1));
+      border: none
+    }
 
     /* grid sections */
-    .grid{display:grid;grid-template-columns:1fr 340px;gap:24px;margin-top:28px}
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      margin-top: 28px
+    }
 
-    .card{background:linear-gradient(180deg,var(--card),#0f0d0d);padding:18px;border-radius:14px;border:1px solid var(--glass-border);box-shadow:var(--shadow)}
-    h3{margin:0 0 12px}
+    .card {
+      background: linear-gradient(180deg, var(--card), #0f0d0d);
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow)
+    }
+
+    h3 {
+      margin: 0 0 12px
+    }
 
     /* skills */
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .skill {
+      background: var(--glass);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted)
+    }
 
     /* timeline */
-    .timeline{display:flex;flex-direction:column;gap:12px}
-    .job{padding:10px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
-    .job .meta{color:var(--muted);font-size:13px}
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .job {
+      padding: 10px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent)
+    }
+
+    .job .meta {
+      color: var(--muted);
+      font-size: 13px
+    }
 
     /* projects */
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;transition:transform .28s ease, box-shadow .28s ease;cursor:pointer}
-    .project:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
-    .project h4{margin:0 0 8px}
-    .project p{margin:0;font-size:14px;color:var(--muted)}
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03);color:var(--muted)}
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px
+    }
+
+    .project {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      padding: 14px;
+      border-radius: 12px;
+      transition: transform .28s ease, box-shadow .28s ease;
+      cursor: pointer
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6)
+    }
+
+    .project h4 {
+      margin: 0 0 8px
+    }
+
+    .project p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted)
+    }
 
     /* contact */
-    .contact-list{display:flex;flex-direction:column;gap:8px}
-    .contact-item{font-size:14px;color:var(--muted)}
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .contact-item {
+      font-size: 14px;
+      color: var(--muted)
+    }
 
     /* subtle reveal animation */
-    .reveal{opacity:0;transform:translateY(8px);animation:reveal .9s forwards;animation-delay:0.15s}
-    .reveal:nth-child(2){animation-delay:0.22s}
-    .reveal:nth-child(3){animation-delay:0.30s}
-    @keyframes reveal{to{opacity:1;transform:none}}
+    .reveal {
+      opacity: 0;
+      transform: translateY(8px);
+      animation: reveal .9s forwards;
+      animation-delay: 0.15s
+    }
 
-    footer{text-align:center;margin:40px 0 20px;color:var(--muted);font-size:13px}
+    .reveal:nth-child(2) {
+      animation-delay: 0.22s
+    }
+
+    .reveal:nth-child(3) {
+      animation-delay: 0.30s
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 0 20px;
+      color: var(--muted);
+      font-size: 13px
+    }
 
     /* responsive */
-    @media (max-width:900px){.grid{grid-template-columns:1fr}.avatar{width:120px;height:120px}.container{padding:18px}}
+    @media (max-width:900px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px
+      }
+
+      .container {
+        padding: 18px
+      }
+    }
 
     /* decorative accent line */
-    .accent-line{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--accent),transparent);margin-top:12px}
+    .accent-line {
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      margin-top: 12px
+    }
 
-  /* light mode */
-    
-    </style>
+    /* light mode */
+  </style>
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -110,18 +315,23 @@
         <p class="role">Pune, India • 6+ years experience</p>
         <div class="actions">
           <a class="btn" href="#projects">Projects</a>
-          <a class="btn primary" href="mailto:tirandazadiba1@gmail.com">Hire / Contact</a>
+            <a class="btn" href="https://tirandazadiba.hashnode.dev/" target="_blank">Blog</a>
+          <a class="btn primary" href="https://www.linkedin.com/in/adiba-tirandaz-09a94236b/" target="_blank">Hire /
+            Contact</a>
         </div>
         <div class="accent-line"></div>
       </div>
-    
+
     </header>
 
     <div class="grid">
       <main>
         <section class="card reveal">
           <h3>About</h3>
-          <p style="color:var(--muted);margin-top:6px">Frontend-focused developer with 6+ years of experience in building scalable Angular applications, enterprise dashboards and user-friendly interfaces. Strong in TypeScript, JavaScript, responsive design, and performance optimization. Experienced in Agile delivery, mentoring, and client-facing communication.</p>
+          <p style="color:var(--muted);margin-top:6px">Frontend-focused developer with 6+ years of experience in
+            building scalable Angular applications, enterprise dashboards and user-friendly interfaces. Strong in
+            TypeScript, JavaScript, responsive design, and performance optimization. Experienced in Agile delivery,
+            mentoring, and client-facing communication.</p>
         </section>
 
         <section class="card reveal" id="projects" style="margin-top:18px">
@@ -129,7 +339,8 @@
           <div class="projects" style="margin-top:12px">
             <article class="project">
               <h4>PIL — Pipeline Management System</h4>
-              <p>Enterprise dashboard for real-time operational workflow with custom filters, inline editing and optimized performance.</p>
+              <p>Enterprise dashboard for real-time operational workflow with custom filters, inline editing and
+                optimized performance.</p>
               <div class="tags">
                 <span class="tag">Angular</span>
                 <span class="tag">Lazy Loading</span>
@@ -151,20 +362,23 @@
 
             <article class="project">
               <h4>Bridge Monitoring System</h4>
-              <p>IoT dashboard showing vibration & temperature telemetry with threshold alerts and role‑based access.</p>
+              <p>IoT dashboard showing vibration & temperature telemetry with threshold alerts and role‑based access.
+              </p>
               <div class="tags"><span class="tag">Angular</span><span class="tag">IoT</span></div>
             </article>
 
-          <article class="project">
+            <article class="project">
               <h4>iConnections — B2B Platform</h4>
-              <p>Requirement analysis, API design, and optimized Angular + Node.js flows for scalable business networking.</p>
+              <p>Requirement analysis, API design, and optimized Angular + Node.js flows for scalable business
+                networking.</p>
               <div class="tags"><span class="tag">Angular</span><span class="tag">Node.js</span></div>
             </article>
 
             <article class="project">
               <h4>MemonID — Digital Identity Platform</h4>
               <p>Reusable UI & API modules, EC2 + Nginx deployment, and migration to serverless architecture.</p>
-              <div class="tags"><span class="tag">Angular</span><span class="tag">Node.js</span><span class="tag">AWS</span></div>
+              <div class="tags"><span class="tag">Angular</span><span class="tag">Node.js</span><span
+                  class="tag">AWS</span></div>
             </article>
 
             <article class="project">
@@ -178,7 +392,8 @@
 
         <section class="card reveal" style="margin-top:18px">
           <h3>Education</h3>
-          <p style="color:var(--muted);margin-top:6px">M.Sc. Computer Science — Savitribai Phule Pune University (2020)</p>
+          <p style="color:var(--muted);margin-top:6px">M.Sc. Computer Science — Savitribai Phule Pune University (2020)
+          </p>
         </section>
       </main>
 
@@ -204,19 +419,22 @@
             <div class="job">
               <strong>Ironalytics</strong>
               <div class="meta">Senior Frontend Developer — Jun 2022 – Apr 2025</div>
-              <div style="color:var(--muted);margin-top:8px;font-size:14px">Mentored juniors, client POC, Angular builds & deployments, automation scripts (Node.js).</div>
+              <div style="color:var(--muted);margin-top:8px;font-size:14px">Mentored juniors, client POC, Angular builds
+                & deployments, automation scripts (Node.js).</div>
             </div>
 
             <div class="job">
               <strong>Cyberian Consulting</strong>
               <div class="meta">Senior Frontend Developer — Jun 2022 – Jun 2023</div>
-              <div style="color:var(--muted);margin-top:8px;font-size:14px">Led Angular UI dev, stakeholder demos and documentation.</div>
+              <div style="color:var(--muted);margin-top:8px;font-size:14px">Led Angular UI dev, stakeholder demos and
+                documentation.</div>
             </div>
 
             <div class="job">
               <strong>Broadstairs IT Solutions</strong>
               <div class="meta">Software Developer — Jan 2019 – Jun 2022</div>
-              <div style="color:var(--muted);margin-top:8px;font-size:14px">Full lifecycle delivery: PHP → Angular/React, deployments & scrums.</div>
+              <div style="color:var(--muted);margin-top:8px;font-size:14px">Full lifecycle delivery: PHP →
+                Angular/React, deployments & scrums.</div>
             </div>
 
           </div>
@@ -225,10 +443,12 @@
         <section class="card reveal" style="margin-top:18px">
           <h3>Contact</h3>
           <div class="contact-list" style="margin-top:8px">
-            <div class="contact-item">Email: <a style="color:var(--accent);text-decoration:none" href="mailto:tirandazadiba1@gmail.com">tirandazadiba1@gmail.com</a></div>  
-              <div class="contact-item">Phone: <span style="color:var(--muted)">+91 98901 64647</span></div>
+            <div class="contact-item">Email: <a style="color:var(--accent);text-decoration:none"
+                href="mailto:tirandazadiba1@gmail.com">tirandazadiba1@gmail.com</a></div>
+            <div class="contact-item">Phone: <span style="color:var(--muted)">+91 98901 64647</span></div>
             <div class="contact-item">Location: Pune, India</div>
-            <div class="contact-item">LinkedIn: <a style="color:var(--accent);text-decoration:none" href="https://www.linkedin.com/in/adiba-tirandaz-09a94236b/">LinkedIn Profile</a></div>
+            <div class="contact-item">LinkedIn: <a style="color:var(--accent);text-decoration:none"
+                href="https://www.linkedin.com/in/adiba-tirandaz-09a94236b/">LinkedIn Profile</a></div>
           </div>
         </section>
       </aside>
@@ -240,4 +460,5 @@
   </div>
 
 </body>
+
 </html>
