@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adiba Tirandaz — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+
+/* ── PRINT SETUP ── */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .no-print { display: none; }
+  * { -webkit-font-smoothing: antialiased; }
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── ROOT PALETTE — dusty rose + warm ivory + deep plum ── */
+:root {
+  --ivory:    #faf7f2;
+  --cream:    #f3ede3;
+  --rose:     #c9849a;
+  --rose-lt:  #e8c4cf;
+  --rose-dk:  #8b3a54;
+  --plum:     #2d1b2e;
+  --plum-mid: #4a2d4e;
+  --tan:      #c4a882;
+  --tan-lt:   #ede0cc;
+  --ink:      #1e1218;
+  --ink-mid:  #3d2840;
+  --ink-lt:   #7a5a7e;
+  --rule:     #ddd0c8;
+  --serif:    'Cormorant', Georgia, serif;
+  --sans:     'Jost', sans-serif;
+  --mono:     'DM Mono', monospace;
+}
+
+/* ── PAGE ── */
+html { font-size: 10px; }
+
+body {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.5;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── LAYOUT: LEFT SIDEBAR + RIGHT MAIN ── */
+.page {
+  display: grid;
+  grid-template-columns: 68mm 1fr;
+  min-height: 297mm;
+}
+
+/* ════════════════════════════════
+   LEFT SIDEBAR
+════════════════════════════════ */
+.sidebar {
+  background: var(--plum);
+  padding: 10mm 7mm 10mm 8mm;
+  position: relative;
+  overflow: hidden;
+}
+
+/* decorative arcs */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  width: 90mm;
+  height: 90mm;
+  border-radius: 50%;
+  border: 18px solid rgba(201,132,154,0.12);
+  top: -30mm;
+  right: -45mm;
+  pointer-events: none;
+}
+.sidebar::after {
+  content: '';
+  position: absolute;
+  width: 60mm;
+  height: 60mm;
+  border-radius: 50%;
+  border: 10px solid rgba(201,132,154,0.08);
+  bottom: 20mm;
+  left: -20mm;
+  pointer-events: none;
+}
+
+/* ── NAME BLOCK ── */
+.name-block {
+  margin-bottom: 7mm;
+  position: relative;
+  z-index: 1;
+}
+
+.name-first {
+  font-family: var(--serif);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--ivory);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  display: block;
+}
+
+.name-last {
+  font-family: var(--serif);
+  font-size: 3.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--rose);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  display: block;
+}
+
+.name-rule {
+  width: 24mm;
+  height: 1.5px;
+  background: var(--rose);
+  margin: 3.5mm 0 3mm;
+  opacity: 0.7;
+}
+
+.name-title {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rose-lt);
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+/* ── SIDEBAR SECTION ── */
+.s-section {
+  margin-bottom: 5.5mm;
+  position: relative;
+  z-index: 1;
+}
+
+.s-section-title {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 3mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 1px solid rgba(201,132,154,0.25);
+}
+
+/* ── CONTACT ── */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5mm;
+  margin-bottom: 2mm;
+}
+
+.contact-icon {
+  font-size: 0.75rem;
+  color: var(--rose);
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+  width: 4mm;
+}
+
+.contact-text {
+  font-size: 0.8rem;
+  color: rgba(250,247,242,0.75);
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+/* ── SKILL BARS ── */
+.skill-entry {
+  margin-bottom: 2.8mm;
+}
+
+.skill-name {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 1mm;
+  letter-spacing: 0.02em;
+}
+
+.skill-bar-track {
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rose), var(--rose-lt));
+  border-radius: 1px;
+}
+
+/* ── SIDEBAR TAGS ── */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5mm;
+}
+
+.s-tag {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  color: var(--rose-lt);
+  background: rgba(201,132,154,0.12);
+  border: 1px solid rgba(201,132,154,0.2);
+  padding: 1mm 2mm;
+  border-radius: 1px;
+}
+
+/* ── SIDEBAR EDUCATION ── */
+.edu-item {
+  margin-bottom: 3mm;
+}
+.edu-degree {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ivory);
+  line-height: 1.2;
+}
+.edu-school {
+  font-size: 0.73rem;
+  color: rgba(250,247,242,0.6);
+  margin-top: 0.5mm;
+}
+.edu-year {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--rose);
+  margin-top: 0.5mm;
+}
+
+/* ── SIDEBAR PROFILE ── */
+.profile-text {
+  font-size: 0.78rem;
+  color: rgba(250,247,242,0.7);
+  line-height: 1.65;
+}
+
+/* ════════════════════════════════
+   MAIN CONTENT
+════════════════════════════════ */
+.main {
+  background: var(--ivory);
+  padding: 9mm 9mm 9mm 8mm;
+  position: relative;
+}
+
+/* top decorative strip */
+.main::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1.5mm;
+  background: linear-gradient(90deg, var(--rose-dk), var(--rose), var(--tan));
+}
+
+/* ── MAIN SECTION ── */
+.m-section {
+  margin-bottom: 5mm;
+}
+
+.m-section-title {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--plum);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.8mm;
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+
+.m-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── JOB ENTRY ── */
+.job {
+  margin-bottom: 4.5mm;
+  padding-left: 3mm;
+  border-left: 2px solid var(--rose-lt);
+  position: relative;
+}
+
+.job::before {
+  content: '';
+  position: absolute;
+  left: -3.5px;
+  top: 1.5mm;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--rose);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5mm;
+  flex-wrap: wrap;
+  gap: 1mm;
+}
+
+.job-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.job-dates {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--rose);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.job-company {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--rose-dk);
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5mm;
+}
+
+.job-bullets {
+  list-style: none;
+  padding: 0;
+}
+
+.job-bullets li {
+  font-size: 0.8rem;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin-bottom: 1mm;
+  padding-left: 3mm;
+  position: relative;
+}
+
+.job-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--rose);
+  font-size: 0.65rem;
+  top: 0.15rem;
+}
+
+.job-bullets li strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5mm;
+}
+
+.proj-card {
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 3mm 3.5mm;
+  position: relative;
+  overflow: hidden;
+}
+
+.proj-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--rose), var(--tan));
+}
+
+.proj-name {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--plum);
+  line-height: 1.2;
+  margin-bottom: 0.8mm;
+}
+
+.proj-tech {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: var(--rose-dk);
+  text-transform: uppercase;
+  margin-bottom: 1.2mm;
+}
+
+.proj-desc {
+  font-size: 0.73rem;
+  color: var(--ink-lt);
+  line-height: 1.5;
+}
+
+/* ── PRINT BUTTON ── */
+.print-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: linear-gradient(135deg, #8b3a54, #c9849a);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(139,58,84,0.4);
+  transition: all 0.2s;
+  z-index: 999;
+}
+.print-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(139,58,84,0.5);
+}
+.print-btn::before { content: '↓ '; }
+
+/* ── AVAILABILITY BADGE ── */
+.avail-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2mm;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(74,222,128,0.1);
+  border: 1px solid rgba(74,222,128,0.25);
+  padding: 1mm 2.5mm;
+  border-radius: 1px;
+  margin-top: 2mm;
+}
+.avail-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+<div class="page">
+
+  <!-- ═══════════════ SIDEBAR ═══════════════ -->
+  <aside class="sidebar">
+
+    <!-- NAME -->
+    <div class="name-block">
+      <span class="name-first">Adiba</span>
+      <span class="name-last">Tirandaz</span>
+      <div class="name-rule"></div>
+      <div class="name-title">Senior Frontend Developer<br>Angular · React · TypeScript</div>
+      <div class="avail-badge"><div class="avail-dot"></div>Immediate Joiner</div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="s-section">
+      <div class="s-section-title">Profile</div>
+      <div class="profile-text">6+ years crafting enterprise-grade web applications. Expert in Angular 16+, React, and RxJS — with a track record of leading teams, owning client relationships, and shipping pixel-perfect products.</div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="s-section">
+      <div class="s-section-title">Contact</div>
+      <div class="contact-item">
+        <span class="contact-icon">✉</span>
+        <span class="contact-text">tirandazadiba1@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">✆</span>
+        <span class="contact-text">+91 98901 64647</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">⌖</span>
+        <span class="contact-text">Pune, India · Remote / Hybrid</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">⬡</span>
+        <span class="contact-text">linkedin.com/in/adiba-tirandaz</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">◈</span>
+        <span class="contact-text">adiba-portfolio (GitHub Pages)</span>
+      </div>
+    </div>
+
+    <!-- CORE SKILLS -->
+    <div class="s-section">
+      <div class="s-section-title">Core Skills</div>
+
+      <div class="skill-entry">
+        <div class="skill-name">Angular 16+</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:97%"></div></div>
+      </div>
+      <div class="skill-entry">
+        <div class="skill-name">React</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-entry">
+        <div class="skill-name">TypeScript</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:94%"></div></div>
+      </div>
+      <div class="skill-entry">
+        <div class="skill-name">RxJS / NgRx</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-entry">
+        <div class="skill-name">HTML5 / CSS3</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:96%"></div></div>
+      </div>
+      <div class="skill-entry">
+        <div class="skill-name">Node.js</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
+      </div>
+      <div class="skill-entry">
+        <div class="skill-name">Cypress / Testing</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="s-section">
+      <div class="s-section-title">Tech Stack</div>
+      <div class="tag-cloud">
+        <span class="s-tag">Angular Material</span>
+        <span class="s-tag">PrimeNG</span>
+        <span class="s-tag">RxJS</span>
+        <span class="s-tag">NgRx</span>
+        <span class="s-tag">REST APIs</span>
+        <span class="s-tag">JWT</span>
+        <span class="s-tag">OAuth</span>
+        <span class="s-tag">RBAC</span>
+        <span class="s-tag">ReBAC</span>
+        <span class="s-tag">Lazy Loading</span>
+        <span class="s-tag">CI/CD</span>
+        <span class="s-tag">Nginx</span>
+        <span class="s-tag">AWS EC2</span>
+        <span class="s-tag">Vercel</span>
+        <span class="s-tag">Git</span>
+        <span class="s-tag">Jira</span>
+        <span class="s-tag">Scrum</span>
+        <span class="s-tag">Postman</span>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="s-section">
+      <div class="s-section-title">Education</div>
+      <div class="edu-item">
+        <div class="edu-degree">M.Sc. Computer Science</div>
+        <div class="edu-school">Savitribai Phule Pune University</div>
+        <div class="edu-year">2018 – 2020</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">B.Sc. Computer Science</div>
+        <div class="edu-school">Savitribai Phule Pune University</div>
+        <div class="edu-year">2015 – 2018</div>
+      </div>
+    </div>
+
+    <!-- SOFT SKILLS -->
+    <div class="s-section">
+      <div class="s-section-title">Leadership</div>
+      <div class="tag-cloud">
+        <span class="s-tag">Scrum Master</span>
+        <span class="s-tag">Tech Lead</span>
+        <span class="s-tag">Mentorship</span>
+        <span class="s-tag">Code Review</span>
+        <span class="s-tag">Client Comms</span>
+        <span class="s-tag">Stakeholders</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ═══════════════ MAIN ═══════════════ -->
+  <main class="main">
+
+    <!-- ── EXPERIENCE ── -->
+    <div class="m-section">
+      <div class="m-section-title">Experience</div>
+
+      <!-- Ironalytics -->
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Software Engineer II — Frontend Lead</div>
+          <div class="job-dates">Apr 2023 – Apr 2025</div>
+        </div>
+        <div class="job-company">Ironalytics · ironalytics.com · Remote</div>
+        <ul class="job-bullets">
+          <li>Engineered <strong>large-scale Angular 16+ enterprise dashboard</strong> with dynamic tables, filters, inline editing, and multi-step approval workflows for enterprise pipeline management.</li>
+          <li>Built <strong>reusable component library</strong> (modals, dropdowns, loaders, alerts) used across 8+ modules — reducing code duplication by ~40% and enforcing UI consistency.</li>
+          <li>Boosted performance via <strong>OnPush change detection, lazy loading, preloading strategies, and trackBy</strong> — measurably cutting load times on data-heavy views.</li>
+          <li>Implemented <strong>RBAC with JWT-secured login flows</strong> and threshold-based alert systems across all user roles.</li>
+          <li>Served as <strong>primary client point of contact</strong> — led weekly calls, sprint demos, and stakeholder communications throughout the engagement.</li>
+          <li><strong>Managed and mentored 2 junior developers</strong>; conducted code reviews and elevated team proficiency in Angular and TypeScript.</li>
+          <li>Facilitated all <strong>Scrum ceremonies as Scrum Master</strong> — sprint planning, stand-ups, retrospectives, and Jira board management.</li>
+          <li>Built <strong>Node.js automation scripts</strong> for bulk data processing, significantly reducing manual effort and accelerating delivery.</li>
+        </ul>
+      </div>
+
+      <!-- Broadstairs -->
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Software Developer → Informal Tech Lead</div>
+          <div class="job-dates">Feb 2019 – Jun 2022</div>
+        </div>
+        <div class="job-company">Broadstairs IT Solutions · broadstairs.in · Pune</div>
+        <ul class="job-bullets">
+          <li>Progressed from <strong>PHP intern to Angular/React specialist to informal tech lead</strong> managing 2–3 developers on international client engagements within 3 years.</li>
+          <li>Independently delivered <strong>end-to-end client projects</strong>: requirements gathering, frontend architecture, API integration, deployment, and sign-off.</li>
+          <li>Built <strong>cross-browser, pixel-perfect responsive UIs</strong> using Angular and React across desktop, tablet, and mobile.</li>
+          <li>Integrated frontends with <strong>REST APIs using JWT authentication</strong> and secure coding practices throughout.</li>
+          <li>Acted as <strong>Scrum Master</strong> — daily stand-ups, sprint planning, Jira, and direct client demo presentations.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── PROJECTS ── -->
+    <div class="m-section">
+      <div class="m-section-title">Key Projects</div>
+      <div class="projects-grid">
+
+        <div class="proj-card">
+          <div class="proj-name">PIL — Pipeline Management</div>
+          <div class="proj-tech">Angular 16+ · NgRx · REST APIs · Angular Material</div>
+          <div class="proj-desc">Enterprise dashboard with dynamic tables, inline editing, reusable component library, RBAC, and performance-optimised architecture serving hundreds of internal users.</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-name">Bridge Monitoring System</div>
+          <div class="proj-tech">Angular · IoT · WebSockets · ReBAC</div>
+          <div class="proj-desc">Real-time IoT dashboard tracking structural data across bridge sites with live charts, threshold alerts, and relation-based access control (ReBAC).</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-name">Pantomah — School Management</div>
+          <div class="proj-tech">React · Flask · Firebase · sortted.com</div>
+          <div class="proj-desc">Role-specific dashboards for admins, teachers, and students. Firebase real-time push notifications, attendance tracking, and timetable management.</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-name">Sortted · iCONNECTIONS · MEMONID</div>
+          <div class="proj-tech">React · Angular · Node.js · AWS EC2 · Serverless</div>
+          <div class="proj-desc">Productivity planner with drag-and-drop scheduling; co-designed RESTful API platform; full-stack app migrated from EC2/Nginx to serverless with zero downtime.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
